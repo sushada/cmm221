@@ -1,57 +1,30 @@
-<!DOCTYPE html>
-<html lang="en"> <!--language that use in this web-->
-<head>
-	<meta charset="UTF-8"> <!--Set about character that usr in web-->
-	<title>CMM 19</title>
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-	<link rel="stylesheet" type="text/css" href="/assets/home.css">
-</head>
-<body>
-	<header>
-		<div class="has-text-centered"> <!--move image to another place-->
-		<img src="/assets/images/logo.png" alt="" width="145" height="auto"> <!--place picture-->
-		</div>
-		<nav class="navbar-tabs">
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">INTERVIEW</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-			<a href="#" class="navbar-item">WORK</a>
-		</nav>
-		
-	</header>
+{% extends 'layout/base.twig' %}
+
+{% block stylesheet %}
+<link rel="stylesheet" href="/assets/home.css">
+{% endblock %}
+
+{% block content %}
 	<main>
 		<section class="banner">
 			<div class="highlight">
 				<div class="columns">
-			 		<div class="column highlight-item">
+			 		<div class="column highlight-item" style="background-image: url({{highlight.url}});">
 			 			
-			 			<h1> HULAHAHE
-			 			</h1> 
+			 			<h1>{{highlight.title}}
+			 			</h1>
 			 		</div>
 				</div>  
 			</div>
 			<div class="thumbnail">
 				<div class="columns is-marginless">
+					{% for item in thumbnail %}
+
 					<div class="column thumbnail-item is-paddingless has-text-centered"
-					style="background-image: url(/assets/images/home/banner/thumbnail-1.jpg);">
-						Khorchen
+					style="background-image: url({{item.url}});">
+						{{item.title}}
 					</div>
-		                <div class="column thumbnail-item  is-paddingless  has-text-centered" 
-		                style="background-image: url(/assets/images/home/banner/thumbnail-2.jpg);">
-							Pidthong
-						</div>
-							<div class="column thumbnail-item is-paddingless  has-text-centered"
-							style="background-image: url(/assets/images/home/banner/thumbnail-3.jpg);">
-								Look
-							</div>
-								<div class="column thumbnail-item is-paddingless  has-text-centered"
-								style="background-image: url(/assets/images/home/banner/thumbnail-4.jpg);">
-									Nimit
-								</div>
+					{% endfor %}
 				</div>
 			</div>
 			
@@ -184,5 +157,4 @@
 			</div>
 		</section>
 	</main>
-</body>
-</html>
+{% endblock %}
